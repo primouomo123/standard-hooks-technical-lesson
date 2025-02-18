@@ -131,7 +131,7 @@ Below is a **task list** to guide you in adding each hook to your application. F
   - Keep hooks modular: consider using custom hooks if logic repeats or grows in complexity.
 
 
-These hooks provide **efficient state and DOM management** in React, reducing the need for prop drilling, helping generate unique IDs, and interacting with the DOM without triggering unnecessary re-renders.
+## These hooks provide **efficient state and DOM management** in React, reducing the need for prop drilling, helping generate unique IDs, and interacting with the DOM without triggering unnecessary re-renders.
 Finished Example
 ----------------
 
