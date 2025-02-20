@@ -1,3 +1,156 @@
+### Technical Lesson: Implementing Standard Hooks in React
+
+Introduction
+------------
+
+React's standard hooks help simplify state management and user interactions within applications. In this lesson, we will explore three essential hooks:
+
+-   useRef -- Allows us to interact with DOM elements directly without triggering re-renders.
+
+-   useId -- Generates unique and stable IDs to improve accessibility.
+
+-   useContext -- Manages global state, eliminating unnecessary prop drilling.
+
+### Scenario: Why Use These Hooks?
+
+Imagine we are building a user profile page that includes:
+
+✅ An input field that is automatically focused when the page loads.\
+✅ A form with labels and inputs, where each label requires a unique ID for accessibility.\
+✅ A theme switcher, allowing users to toggle between light and dark themes globally.
+
+We will progressively introduce each hook to refactor our code, making it cleaner, reusable, and more efficient.
+
+* * * * *
+
+Task 1: Set Up the Project
+--------------------------
+
+### Step 1: Clone the Starter Repository
+
+We will use the following GitHub repository as our starting point:
+
+🔗[  Standard Hooks Technical Lesson Repo](https://github.com/learn-co-curriculum/standard-hooks-technical-lesson)
+
+#### Instructions to Set Up Locally:
+
+1.  Fork the repository to your own GitHub account.
+
+2.  Clone the forked repository to your local machine:
+
+```bash
+git  clone  https://github.com/YOUR-USERNAME/standard-hooks-technical-lesson.git
+```
+
+ 3. Navigate into the project folder:
+
+```bash
+cd  standard-hooks-technical-lesson
+```
+4. Install dependencies and start the development server:
+
+```bash
+npm  install
+
+npm  start
+```
+✅ This will start a React development server at <http://localhost:5173/>.
+
+Task 2: Define the Problem
+--------------------------
+
+Our current application is a functional user profile page, but it has limitations:
+
+-   The input field does not auto-focus when the page loads.
+
+-   Labels and inputs do not have unique IDs, reducing accessibility.
+
+-   Theme switching is hardcoded, meaning the user cannot dynamically change it.
+
+### What We Need to Implement:
+
+✅ Auto-focus the input field when the page loads (useRef).\
+✅ Generate unique IDs for form labels (useId).\
+✅ Allow theme toggling using global state (useContext).
+
+* * * * *
+
+Task 3: Develop the Code
+------------------------
+
+### Step 1: Create a New Git Feature Branch
+
+To separate development from the main branch, create a new branch:
+
+```bash
+git  checkout  -b  feature-standard-hooks
+```
+### Step 2: Implement useRef for Input Focus
+
+📌 Why?\
+Normally, React manages elements through state, but sometimes we need to interact with a DOM element directly---like focusing an input field when the page loads. We use useRef to store a reference to an input and manipulate it without causing re-renders.
+
+#### Modify ProfileForm.jsx to Use useRef
+
+📁 File: src/components/ProfileForm.jsx
+
+```jsx
+import  React,  {  useState,  useRef,  useEffect  }  from  "react";
+
+function  ProfileForm()  {
+
+  const  [userName,  setUserName]  =  useState("");
+
+  // ✅ Step 1: Create a ref for the input field
+
+  const  inputRef  =  useRef(null);
+
+  // ✅ Step 2: Use useEffect to focus the input field when the component mounts
+
+  useEffect(()  =>  {
+
+inputRef.current.focus();
+
+  },  []);
+
+  return  (
+
+<div>
+
+    <h2>Profile  Form</h2>
+
+    <label>Name:</label>
+
+    {/* ✅ Step 3: Attach the ref to the input */}
+
+    <input
+
+      ref={inputRef}
+
+      type="text"
+
+      value={userName}
+
+      onChange={(e)  =>  setUserName(e.target.value)}
+
+    />
+
+    <p>Current  Name:  {userName  ||  "Guest"}</p>
+
+</div>
+
+  );
+
+}
+
+export  default  ProfileForm;
+```
+
+✅ Test It:
+
+-   Refresh the page---your cursor should automatically appear in the input field.
+
+
 ### **Step 3: Install Additional Dependencies**
 
 To enhance debugging and manage package depende### Technical Lesson: Implementing Standard Hooks in React
