@@ -283,7 +283,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ✅ Confirm That:
 
--   <App /> is wrapped inside <ThemeProvider>.
+-   `<App />` is wrapped inside `<ThemeProvider>`.
 
 -   Without this, useContext(ThemeContext) will be undefined.
 
