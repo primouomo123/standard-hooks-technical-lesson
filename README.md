@@ -152,8 +152,8 @@ export  default  ProfileForm;
 
 ### Step 3: Implement useId for Unique Input IDs
 
-📌 Why?\
-Every <label> must be linked to an input for accessibility. Hardcoding IDs can lead to duplicates, so useId ensures that each input field has a unique, stable identifier.
+📌 Why?
+In order to meet accessibility standards, each label must reference a unique id on its corresponding input. Hardcoding these IDs can lead to duplicates or conflicts across components. By using useId, React ensures that each input field is assigned a stable, unique identifier, preserving proper label-to-input mapping and preventing accidental ID collisions.
 
 #### Modify ProfileForm.jsx to Use useId
 
@@ -328,7 +328,7 @@ export  default  ThemeToggle;
 
 ✅ Test It:
 
--   Click the "Toggle Theme" button---the theme should change dynamically.
+-   Click the "Toggle Theme" button---the current theme should change dynamically(this won't change the theme color yet just the word).
 
 
 ### Step 7: Modify App.jsx to Apply Theme Dynamically
@@ -338,7 +338,7 @@ export  default  ThemeToggle;
 ```jsx
 import  React,  {  useContext  }  from  "react";
 
-import  "./styles/App.css";
+import  "./App.css";
 
 import  ProfileForm  from  "./components/ProfileForm";
 
