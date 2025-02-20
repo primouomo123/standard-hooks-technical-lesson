@@ -43,8 +43,15 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Dark theme styles */
+/* Light Mode (Default) */
+.app-container {
+  background: white;
+  color: black;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
 .dark {
-  background-color: #333;
+  background: #333;
   color: white;
 }
